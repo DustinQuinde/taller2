@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script>
+
+function getuserlist(){
+					jQuery.ajax({
+              
+                        data:{user:$("#Usuario").val(),pass:$("#pass").val() },
+              type: "get",
+          
+              url: '/login',
+             
+              success: function (result) {
+
+			if(result.data[0] !=undefined) alert("existe")
+					
+				
+              },
+              error: function (data) {
+                  successmessage = 'Error';
+                  console.log("fallo");
+                //  $("label#successmessage").text(successmessage);
+              },
+          });
+
+				   }
+
+
+    </script>
+</head>
+<body>
+    
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="myModalLabel modal-title" id="myModalLabel" style="margin: 0;">Login</h4>
+          </div>
+          <div class="modal-body">
+            <form id="datos">
+  
+              <div class="form-row">
+                 
+                    <label for="Usuario">Usuario</label>
+                      <input type="text" class="form-control" id="Usuario" name="Usuario">
+                  
+              </div>
+      
+              <div class="form-row">
+               
+                    <label for="nombre">Contraseña </label>
+                      <input type="password" class="form-control" id="pass" name="pass" >
+                
+              </div>
+      
+            
+      
+      
+             
+      
+          </form>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="login()" id="guardar">Ingresar</button>
+  
+          </div>
+        </div>
+      </div>
+
+    
+</body>
+</html>
